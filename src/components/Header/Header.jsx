@@ -1,10 +1,13 @@
 import Navigation from "../Navigation/Navigation";
+import "./Header.css";
 
 const Header = () => {
   return (
     <>
-      <h1>NC-News</h1>
-      <Navigation />
+      <section className="stickyHeader">
+        <h1>NC-News</h1>
+        <Navigation />
+      </section>
     </>
   );
 };
