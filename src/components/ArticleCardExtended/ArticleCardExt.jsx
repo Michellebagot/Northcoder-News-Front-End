@@ -8,15 +8,18 @@ import CommentCard from "../CommentCard/CommentCard";
 import Loading from "../Loading/Loading";
 import "./ArticleCardExt.css";
 import moment from "moment";
+import MakeComment from "../MakeComment/MakeComment";
+import { useParams } from "react-router-dom";
 
 const ArticleCardExt = ({ article_id }) => {
   const [currentArticle, setCurrentArticle] = useState({ article_id });
   const [articleComments, setArticleComments] = useState([]);
   const [loadingState, setLoadingState] = useState(false);
+  const params = useParams();
 
   useEffect(() => {
     setLoadingState(false);
-    getArticleById(article_id)
+    getArticleById(params.article_id)
       .then((response) => {
         setCurrentArticle(response[0]);
         setLoadingState(true);
@@ -28,7 +31,7 @@ const ArticleCardExt = ({ article_id }) => {
 
   useEffect(() => {
     setLoadingState(false);
-    getCommentsByArticleId(article_id)
+    getCommentsByArticleId(params.article_id)
       .then((response) => {
         setArticleComments(response);
         setLoadingState(true);
@@ -36,17 +39,33 @@ const ArticleCardExt = ({ article_id }) => {
       .catch((error) => {
         console.log(error);
       });
-  }, [currentArticle]);
+  }, []);
 
   const voteUp = () => {
-    voteOnArticle(article_id, { inc_votes: 1 }).then((response) => {
-      setCurrentArticle(response);
+    setCurrentArticle((currArticle) => ({
+      ...currArticle,
+      votes: currArticle.votes + 1,
+    }));
+
+    voteOnArticle(params.article_id, { inc_votes: 1 }).catch((error) => {
+      setCurrentArticle((currArticle) => ({
+        ...currArticle,
+        votes: currArticle.votes - 1,
+      }));
     });
   };
 
   const voteDown = () => {
-    voteOnArticle(article_id, { inc_votes: -1 }).then((response) => {
-      setCurrentArticle(response);
+    setCurrentArticle((currArticle) => ({
+      ...currArticle,
+      votes: currArticle.votes - 1,
+    }));
+
+    voteOnArticle(params.article_id, { inc_votes: -1 }).catch((error) => {
+      setCurrentArticle((currArticle) => ({
+        ...currArticle,
+        votes: currArticle.votes + 1,
+      }));
     });
   };
 
@@ -63,7 +82,6 @@ const ArticleCardExt = ({ article_id }) => {
           <p>{currentArticle.body}</p>
           <p>{currentArticle.author}</p>
           <p>Votes: {currentArticle.votes}</p>
-          <p>{moment(currentArticle.created_at).format('MMMM Do YYYY, h:mm:ss a')}</p>
           <button
             className="votingButton"
             onClick={() => {
@@ -79,7 +97,15 @@ const ArticleCardExt = ({ article_id }) => {
             }}
           >
             👍
-          </button>
+          </button>{" "}
+          <p>
+            {moment(currentArticle.created_at).format(
+              "MMMM Do YYYY, h:mm:ss a"
+            )}
+          </p>
+        </section>
+        <section>
+          <MakeComment />
         </section>
         <section>
           <ul>

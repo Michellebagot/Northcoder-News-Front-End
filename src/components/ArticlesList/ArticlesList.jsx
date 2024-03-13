@@ -4,6 +4,7 @@ import ArticleCard from "../ArticleCard/ArticleCard";
 import ArticleCardExt from "../ArticleCardExtended/ArticleCardExt";
 import "./ArticlesList.css";
 import Loading from "../Loading/Loading";
+import { Link } from "react-router-dom";
 
 const ArticleList = () => {
   const [articleList, setArticleList] = useState([]);
@@ -35,11 +36,15 @@ const ArticleList = () => {
           <ul className="cardUL">
             {articleList.map((article) => {
               return (
-                <ArticleCard
-                  key={article.title}
-                  article={article}
-                  setSelectedArticleId={setSelectedArticleId}
-                />
+                <>
+                  <Link to={`/articles/${article.article_id}`}>
+                    <ArticleCard
+                      key={article.title}
+                      article={article}
+                      setSelectedArticleId={setSelectedArticleId}
+                    />
+                  </Link>
+                </>
               );
             })}
           </ul>
