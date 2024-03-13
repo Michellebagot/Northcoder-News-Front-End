@@ -1,7 +1,18 @@
+import { useState, useEffect } from "react"
+
+
 const Loading = () => {
 
+    const [message, setMessage] = useState("Page Is Loading...")
+
+    useEffect(() => {
+        const timeout = setTimeout(() =>{
+            setMessage("Page is still loading...  This is most likely due to the server reinitialising after a period of inactivity.  Thank you for your patience")
+        }, 5000)
+    }, [])
+
 return (
-    <h3>Page is Loading...</h3>
+    <h3>{message}</h3>
 )
 
 }

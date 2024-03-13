@@ -1,17 +1,12 @@
 import "./ArticleCard.css";
 
-const ArticleCard = ({ article, setSelectedArticleId }) => {
-  const openArticle = () => {
-    setSelectedArticleId(article.article_id);
-  };
+const ArticleCard = ({ article }) => {
+
 
   return (
     <>
       <li
         className="articleCard"
-        onClick={() => {
-          openArticle();
-        }}
       >
         <h3>{article.title}</h3>
         <h4>Author: {article.author}</h4>

@@ -42,3 +42,18 @@ export const voteOnArticle = (article_id, votes) => {
     return response.data.article;
   });
 };
+
+export const postComment = ({ article_id, userName, body }) => {
+  return api
+    .post(`/api/articles/${article_id}/comments`, {
+      username: userName,
+      body: body,
+    })
+    .then((response) => {
+      return response.data.comment;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+

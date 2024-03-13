@@ -1,0 +1,11 @@
+.makeCommentContainer, .makingCommentContainer {
+  border: solid 1px black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.makeCommentContainer:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
