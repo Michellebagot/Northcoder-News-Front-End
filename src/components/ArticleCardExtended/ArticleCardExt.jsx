@@ -15,6 +15,7 @@ const ArticleCardExt = ({ article_id }) => {
   const [currentArticle, setCurrentArticle] = useState({ article_id });
   const [articleComments, setArticleComments] = useState([]);
   const [loadingState, setLoadingState] = useState(false);
+  const [currentUser, setCurrentUser] = useState("jessjelly");
   const params = useParams();
 
   useEffect(() => {
@@ -105,12 +106,18 @@ const ArticleCardExt = ({ article_id }) => {
           </p>
         </section>
         <section>
-          <MakeComment />
+          <MakeComment currentUser={currentUser} />
         </section>
         <section>
           <ul>
             {articleComments.map((comment) => {
-              return <CommentCard key={comment.comment_id} comment={comment} />;
+              return (
+                <CommentCard
+                  key={comment.comment_id}
+                  comment={comment}
+                  currentUser={currentUser}
+                />
+              );
             })}
           </ul>
         </section>
