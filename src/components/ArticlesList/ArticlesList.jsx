@@ -5,19 +5,22 @@ import ArticleCardExt from "../ArticleCardExtended/ArticleCardExt";
 import "./ArticlesList.css";
 import Loading from "../Loading/Loading";
 import { Link, useSearchParams } from "react-router-dom";
+import FilterBar from "../FilterBar/FilterBar";
 
 const ArticleList = () => {
   const [articleList, setArticleList] = useState([]);
   const [selectedArticleId, setSelectedArticleId] = useState("");
   const [loadingState, setLoadingState] = useState(false);
+  const [sortBy, setSortBy] = useState("created_at");
+  const [orderBy, setOrderBy] = useState("desc");
+
 
   const [searchParams] = useSearchParams();
   const topic = searchParams.get("topic");
 
-
   useEffect(() => {
     setLoadingState(false);
-    getArticles(topic)
+    getArticles(topic, sortBy, orderBy)
       .then((response) => {
         setArticleList(response);
         setLoadingState(true);
@@ -25,7 +28,7 @@ const ArticleList = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [sortBy, orderBy]);
 
   if (loadingState === false) {
     return <Loading />;
@@ -35,6 +38,12 @@ const ArticleList = () => {
     } else {
       return (
         <>
+          <FilterBar
+            setSortBy={setSortBy}
+            sortBy={sortBy}
+            setOrderBy={setOrderBy}
+            orderBy={orderBy}
+          />
           <h6>This is the article list</h6>
 
           <ul className="cardUL">

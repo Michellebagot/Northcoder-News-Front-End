@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
 import { getTopics } from "../../utils/app";
 import TopicCard from "../TopicCard/TopicCard";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
 
 const Topics = () => {
   const [topicList, setTopicList] = useState([]);
   const [loadingState, setLoadingState] = useState(false);
-
-  const params = useParams();
-  console.log(params);
 
   useEffect(() => {
     setLoadingState(false);

@@ -4,17 +4,23 @@ const api = axios.create({
   baseURL: `https://nc-wk7-nc-news.onrender.com`,
 });
 
-export const getArticles = (topic) => {
-  return api
-    .get(`/api/articles`, {
-      params: { topic: topic },
-    })
-    .then((response) => {
-      return response.data.articles;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+export const getArticles = (topic, sort_by, order_by) => {
+
+  const myParams = {}
+
+  if(topic){myParams.topic = topic}
+  if(sort_by){myParams.sort_by = sort_by, myParams.order_by = order_by}
+
+    return api
+      .get(`/api/articles`, {
+        params: myParams,
+      })
+      .then((response) => {
+        return response.data.articles;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 };
 
 export const getArticleById = (article_id) => {
