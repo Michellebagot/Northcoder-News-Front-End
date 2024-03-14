@@ -4,16 +4,20 @@ import ArticleCard from "../ArticleCard/ArticleCard";
 import ArticleCardExt from "../ArticleCardExtended/ArticleCardExt";
 import "./ArticlesList.css";
 import Loading from "../Loading/Loading";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const ArticleList = () => {
   const [articleList, setArticleList] = useState([]);
   const [selectedArticleId, setSelectedArticleId] = useState("");
   const [loadingState, setLoadingState] = useState(false);
 
+  const [searchParams] = useSearchParams();
+  const topic = searchParams.get("topic");
+
+
   useEffect(() => {
     setLoadingState(false);
-    getArticles()
+    getArticles(topic)
       .then((response) => {
         setArticleList(response);
         setLoadingState(true);
@@ -36,15 +40,15 @@ const ArticleList = () => {
           <ul className="cardUL">
             {articleList.map((article) => {
               return (
-                <>
-                  <Link to={`/articles/${article.article_id}`}>
-                    <ArticleCard
-                      key={article.title}
-                      article={article}
-                      setSelectedArticleId={setSelectedArticleId}
-                    />
-                  </Link>
-                </>
+                <Link
+                  to={`/articles/${article.article_id}`}
+                  key={article.title}
+                >
+                  <ArticleCard
+                    article={article}
+                    setSelectedArticleId={setSelectedArticleId}
+                  />
+                </Link>
               );
             })}
           </ul>
