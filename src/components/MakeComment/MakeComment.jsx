@@ -4,23 +4,15 @@ import { postComment } from "../../utils/app";
 import { useParams } from "react-router-dom";
 import CommentCard from "../CommentCard/CommentCard";
 
-const MakeComment = () => {
-
+const MakeComment = ({ currentUser }) => {
   const params = useParams();
   const article_id = params.article_id;
 
   const [makeCommentState, setMakeCommentState] = useState(false);
-  const [currentUser, setCurrentUser] = useState("jessjelly");
   const [commentBody, setCommentBody] = useState("");
   const [commentComplete, setCommentComplete] = useState(false);
   const [addedComment, setAddedComment] = useState("");
 
- 
-  const makeComment = () => {
-    setMakeCommentState(true);
-  };
-
- 
   const handleSubmit = (event) => {
     event.preventDefault();
     setCommentComplete(true);
@@ -59,10 +51,10 @@ const MakeComment = () => {
 
   if (!makeCommentState) {
     return (
-      <section
+      <section //make a button and style
         className="makeCommentContainer"
         onClick={() => {
-          makeComment();
+          setMakeCommentState(true);
         }}
       >
         <h3> Add A Comment</h3>
@@ -81,7 +73,7 @@ const MakeComment = () => {
             onChange={(event) => {
               setCommentBody(event.target.value);
             }}
-            required 
+            required
           />
           <button>Submit Your Comment</button>
         </form>
