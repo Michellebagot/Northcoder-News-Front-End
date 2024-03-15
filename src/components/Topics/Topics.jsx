@@ -3,6 +3,7 @@ import { getTopics } from "../../utils/app";
 import TopicCard from "../TopicCard/TopicCard";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
+import "./Topics.css"
 
 const Topics = () => {
   const [topicList, setTopicList] = useState([]);
@@ -25,9 +26,7 @@ const Topics = () => {
     return <Loading />;
   } else {
     return (
-      <>
-        <h6>This is the topic list</h6>
-
+      <section className="topics-section">
         <ul className="cardUL">
           {topicList.map((topic) => {
             return (
@@ -37,7 +36,7 @@ const Topics = () => {
             );
           })}
         </ul>
-      </>
+      </section>
     );
   }
 };

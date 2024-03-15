@@ -1,0 +1,32 @@
+.filter-bar {
+  background-color: #1f2833;
+  padding: 10px;
+  margin:  auto;
+  display: flex;
+  position: relative;
+}
+
+.sort-by-section,
+.order-by-section {
+  display: block;
+  margin: auto;
+  justify-content: center;
+  width: 300px;
+  border-radius: 10px;
+  height: 100px;
+  padding: 10px;
+  text-align: center;
+}
+
+.sort-by-dropdown,
+.order-by-dropdown {
+  background-color: #c5c6c7;
+  display: block;
+  margin: auto;
+  justify-content: center;
+  width: 150px;
+  border-radius: 10px;
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+}

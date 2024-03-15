@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import ArticleCardExt from "./components/ArticleCardExtended/ArticleCardExt";
 import Topics from "./components/Topics/Topics";
 import NotFound from "./components/NotFound/NotFound";
+import Loading from "./components/Loading/Loading";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/articles/:article_id" element={<ArticleCardExt />} />
         <Route path="/topics" element={<Topics />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/loading" element={<Loading />} />
       </Routes>
     </>
   );
