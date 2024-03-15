@@ -6,6 +6,7 @@ const Header = () => {
     <>
       <section className="stickyHeader">
         <h1>NC-News</h1>
+        <h2>Level up your newsfeed</h2>
         <Navigation />
       </section>
     </>

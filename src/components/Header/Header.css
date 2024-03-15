@@ -1,7 +1,15 @@
 .stickyHeader {
   position: sticky;
+  display: block;
   top: 0;
-  background-color: white;
+  background-color: #0b0c10;
+  margin: auto;
   margin-bottom: 10px;
   padding: 10px;
+  color: #66fcf1;
+  font-size: larger;
+  text-align: center;
+
 }
+
+
