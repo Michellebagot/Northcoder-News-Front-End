@@ -12,6 +12,7 @@ const Topics = () => {
     setLoadingState(false);
     getTopics()
       .then((response) => {
+        console.log(response);
         setTopicList(response);
         setLoadingState(true);
       })

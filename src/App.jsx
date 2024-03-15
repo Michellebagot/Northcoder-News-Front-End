@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import ArticleCardExt from "./components/ArticleCardExtended/ArticleCardExt";
 import Topics from "./components/Topics/Topics";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/articles" element={<ArticleList />} />
         <Route path="/articles/:article_id" element={<ArticleCardExt />} />
         <Route path="/topics" element={<Topics />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
