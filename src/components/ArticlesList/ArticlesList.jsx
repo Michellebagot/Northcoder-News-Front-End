@@ -44,15 +44,13 @@ const ArticleList = () => {
       return <ArticleCardExt article_id={selectedArticleId} />;
     } else {
       return (
-        <>
+        <section className="articles-list">
           <FilterBar
             setSortBy={setSortBy}
             sortBy={sortBy}
             setOrderBy={setOrderBy}
             orderBy={orderBy}
           />
-          <h6>This is the article list</h6>
-
           <ul className="cardUL">
             {articleList.map((article) => {
               return (
@@ -68,7 +66,7 @@ const ArticleList = () => {
               );
             })}
           </ul>
-        </>
+        </section>
       );
     }
   }

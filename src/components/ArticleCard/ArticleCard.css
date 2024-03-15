@@ -1,15 +1,22 @@
 .articleCard {
+ 
   border: solid 1px black;
-  margin: 5px;
+  margin: auto;
+  margin-bottom: 10px;
   padding: 5px;
   border-radius: 10px;
-  width: 75dvw;
+  width: 30dvw;
+  background-color: #43a29e;
+  text-align: center;
+  color: #0b0c10;
+
 }
 
 .articleCard:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #66fcf1;
 }
 
 img {
-  width: 40dvw;
+  width: 85%;
+  margin: auto
 }

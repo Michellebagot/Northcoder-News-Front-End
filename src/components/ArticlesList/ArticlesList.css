@@ -1,3 +1,13 @@
 .cardUL {
   list-style-type: none;
+  display: flex;
+  grid-template-columns: auto;
+  grid-gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.articles-list {
+  background-color: #1f2833;
+  color: #66fcf1;
 }
