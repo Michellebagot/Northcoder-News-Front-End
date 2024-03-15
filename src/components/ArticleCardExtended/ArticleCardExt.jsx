@@ -10,18 +10,23 @@ import "./ArticleCardExt.css";
 import moment from "moment";
 import MakeComment from "../MakeComment/MakeComment";
 import { useParams } from "react-router-dom";
+import NotFound from "../NotFound/NotFound";
 
 const ArticleCardExt = ({ article_id }) => {
   const [currentArticle, setCurrentArticle] = useState({ article_id });
   const [articleComments, setArticleComments] = useState([]);
   const [loadingState, setLoadingState] = useState(false);
   const [currentUser, setCurrentUser] = useState("jessjelly");
+  const [errorState, setErrorState] = useState(false)
   const params = useParams();
 
   useEffect(() => {
     setLoadingState(false);
     getArticleById(params.article_id)
       .then((response) => {
+        if(response === 404){
+          setErrorState(true)
+        }
         setCurrentArticle(response[0]);
         setLoadingState(true);
       })
@@ -34,6 +39,9 @@ const ArticleCardExt = ({ article_id }) => {
     setLoadingState(false);
     getCommentsByArticleId(params.article_id)
       .then((response) => {
+        if(response === 404){
+          setErrorState(true)
+        }
         setArticleComments(response);
         setLoadingState(true);
       })
@@ -72,7 +80,8 @@ const ArticleCardExt = ({ article_id }) => {
 
   if (loadingState === false) {
     return <Loading />;
-  } else {
+  } else if (errorState){return(<NotFound />)
+}else{
     return (
       <>
         <h1>This is an extended article card</h1>

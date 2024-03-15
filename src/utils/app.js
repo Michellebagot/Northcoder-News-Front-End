@@ -20,6 +20,8 @@ export const getArticles = (topic, sort_by, order_by) => {
       })
       .catch((error) => {
         console.log(error);
+        return Promise.reject({ status: error.request.status, msg: "Bad request" });
+        // return error.request.status
       });
 };
 
@@ -30,7 +32,8 @@ export const getArticleById = (article_id) => {
       return response.data.article;
     })
     .catch((error) => {
-      console.log(error);
+      console.log(error); 
+      return error.request.status
     });
 };
 
@@ -42,6 +45,7 @@ export const getCommentsByArticleId = (article_id) => {
     })
     .catch((error) => {
       console.log(error);
+      return error.request.status
     });
 };
 
@@ -62,6 +66,7 @@ export const postComment = ({ article_id, userName, body }) => {
     })
     .catch((error) => {
       console.log(error);
+      return error.request.status
     });
 };
 

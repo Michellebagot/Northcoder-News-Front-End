@@ -6,6 +6,7 @@ import "./ArticlesList.css";
 import Loading from "../Loading/Loading";
 import { Link, useSearchParams } from "react-router-dom";
 import FilterBar from "../FilterBar/FilterBar";
+import NotFound from "../NotFound/NotFound";
 
 const ArticleList = () => {
   const [articleList, setArticleList] = useState([]);
@@ -13,7 +14,7 @@ const ArticleList = () => {
   const [loadingState, setLoadingState] = useState(false);
   const [sortBy, setSortBy] = useState("created_at");
   const [orderBy, setOrderBy] = useState("desc");
-
+  const [errorOccured, setErrorOccured] = useState(false);
 
   const [searchParams] = useSearchParams();
   const topic = searchParams.get("topic");
@@ -27,10 +28,16 @@ const ArticleList = () => {
       })
       .catch((error) => {
         console.log(error);
+        setLoadingState(false);
+        if (error.status === 404) {
+          setErrorOccured(true);
+        }
       });
-  }, [sortBy, orderBy]);
+  }, [sortBy, orderBy, errorOccured]);
 
-  if (loadingState === false) {
+  if (errorOccured) {
+    return <NotFound />;
+  } else if (!loadingState) {
     return <Loading />;
   } else {
     if (selectedArticleId !== "") {
