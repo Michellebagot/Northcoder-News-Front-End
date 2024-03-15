@@ -14,7 +14,8 @@ const Loading = () => {
 
   return (
     <div className="loading-screen">
-      <h3>{message}</h3>
+      <h2>{message}</h2>
+      <div className="spinner"></div>
     </div>
   );
 };

@@ -17,15 +17,15 @@ const ArticleCardExt = ({ article_id }) => {
   const [articleComments, setArticleComments] = useState([]);
   const [loadingState, setLoadingState] = useState(false);
   const [currentUser, setCurrentUser] = useState("jessjelly");
-  const [errorState, setErrorState] = useState(false)
+  const [errorState, setErrorState] = useState(false);
   const params = useParams();
 
   useEffect(() => {
     setLoadingState(false);
     getArticleById(params.article_id)
       .then((response) => {
-        if(response === 404){
-          setErrorState(true)
+        if (response === 404) {
+          setErrorState(true);
         }
         setCurrentArticle(response[0]);
         setLoadingState(true);
@@ -39,8 +39,8 @@ const ArticleCardExt = ({ article_id }) => {
     setLoadingState(false);
     getCommentsByArticleId(params.article_id)
       .then((response) => {
-        if(response === 404){
-          setErrorState(true)
+        if (response === 404) {
+          setErrorState(true);
         }
         setArticleComments(response);
         setLoadingState(true);
@@ -80,15 +80,15 @@ const ArticleCardExt = ({ article_id }) => {
 
   if (loadingState === false) {
     return <Loading />;
-  } else if (errorState){return(<NotFound />)
-}else{
+  } else if (errorState) {
+    return <NotFound />;
+  } else {
     return (
-      <>
-        <h1>This is an extended article card</h1>
+      <div className="extArt">
         <section className="extArticleContainer">
           <h3>{currentArticle.title}</h3>
           <h4>{currentArticle.topic}</h4>
-          <img src={currentArticle.article_img_url} />
+          <img src={currentArticle.article_img_url} alt={`image for ${currentArticle.title}`} />
           <p>{currentArticle.body}</p>
           <p>{currentArticle.author}</p>
           <p>Votes: {currentArticle.votes}</p>
@@ -130,7 +130,7 @@ const ArticleCardExt = ({ article_id }) => {
             })}
           </ul>
         </section>
-      </>
+      </div>
     );
   }
 };

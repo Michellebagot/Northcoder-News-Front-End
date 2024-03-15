@@ -1,0 +1,9 @@
+.topics-section {
+  background-color: #1f2833;
+  position: absolute;
+  margin: auto;
+  padding: 10px;
+  height: 100%;
+  box-sizing: border-box;
+}
+

@@ -7,6 +7,9 @@
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
+  background-color: #43a29e;
+  text-align: center;
+  color: #0b0c10;
 }
 
 .commentContainer::marker {

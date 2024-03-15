@@ -4,7 +4,7 @@
 
 Northcoders News is a mock project as fulfilment of the Northcoders Software Development Bootcamp - Front End Section. The project has been to create a "reddit" style social network which allows for forum style interaction and contains the front end development.
 
-A hosted version of this project can be found at : https://65f419170bc7433f03a2c384--jolly-pika-a6d27b.netlify.app/
+A hosted version of this project can be found at : https://michelle-bagot-nc-news.netlify.app/
 
 The backend project can be found at https://github.com/Michellebagot/nc-wk7-nc-news
 

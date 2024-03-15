@@ -1,4 +1,28 @@
 .loading-screen {
-    background-color: ;
+  color: #66fcf1;
+  text-align: center;
+  background-color: #1f2833;
+  height: 100dvh;
+  padding: 100px;
+}
 
+.spinner {
+
+  width: 75px; 
+  height: 75px; 
+  border: 7px solid #c5c6c7; 
+  border-radius: 50%;
+  border-top-color: #45a29e;
+  animation: spin 1s linear infinite;
+  margin: auto;  
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

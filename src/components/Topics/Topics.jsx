@@ -3,7 +3,7 @@ import { getTopics } from "../../utils/app";
 import TopicCard from "../TopicCard/TopicCard";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
-import "./Topics.css"
+import "./Topics.css";
 
 const Topics = () => {
   const [topicList, setTopicList] = useState([]);
