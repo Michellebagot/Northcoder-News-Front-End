@@ -1,11 +1,19 @@
-.makeCommentContainer, .makingCommentContainer {
+.makeCommentContainer,
+.makingCommentContainer,
+.madeCommentContainer {
   border: solid 1px black;
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
+  background-color: #43a29e;
+  text-align: center;
+  color: #0b0c10;
 }
 .makeCommentContainer:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #66fcf1;
 }
 
-
+.text-box {
+  width: 66%;
+  color: #0b0c10;
+}

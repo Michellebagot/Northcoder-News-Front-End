@@ -9,7 +9,7 @@ const Header = () => {
         <h2>Level up your newsfeed</h2>
         <Navigation />
       </section>
-      <hr className="header-divider" />
+   
     </>
   );
 };

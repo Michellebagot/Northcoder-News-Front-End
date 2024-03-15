@@ -9,11 +9,7 @@
   font-size: larger;
   text-align: center;
   z-index: 99;
-
-}
-
-.header-divider {
-  border: 3px solid #45a29e ;
+  border-bottom: 5px solid #c5c6c7;
 }
 
 

@@ -1,11 +1,14 @@
 .topicCard {
   border: solid 1px black;
+  background-color: #45a29e;
   margin: 5px;
   padding: 5px;
   border-radius: 10px;
-  width: 75dvw;
+  width: 50dvw;
+  color: #0b0c10;
+  text-align: center;
 }
 
 .topicCard:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #66fcf1
 }

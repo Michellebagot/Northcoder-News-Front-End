@@ -35,7 +35,7 @@ const MakeComment = ({ currentUser }) => {
   if (commentComplete) {
     return (
       <>
-        <section className="makeCommentContainer">
+        <section className="madeCommentContainer">
           <h3> Your comment has been added. Thank you</h3>
         </section>
         <section>
@@ -65,9 +65,10 @@ const MakeComment = ({ currentUser }) => {
       <section className="makingCommentContainer">
         <p>You are logged in as {currentUser}</p>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="commentBox">Add a Comment</label>
+          {/* <label htmlFor="commentBox">Add a Comment</label> */}
           <textarea
             type="text"
+            className="text-box"
             id="commentBox"
             value={commentBody}
             onChange={(event) => {
@@ -75,10 +76,9 @@ const MakeComment = ({ currentUser }) => {
             }}
             required
           />
+          <br></br>
           <button>Submit Your Comment</button>
         </form>
-
-        <h3>I'm going to make a comment</h3>
       </section>
     );
   }
