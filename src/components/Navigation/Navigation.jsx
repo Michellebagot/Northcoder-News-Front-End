@@ -4,11 +4,10 @@ import "./Navigation.css";
 const Navigation = () => {
   return (
     <>
-      <h6> This is the Navigation bar</h6>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/articles">Articles</Link>
-        <Link to="/topics">Topics</Link>
+      <nav className="navbar">
+        <Link to="/" className="navlink">Home</Link>
+        <Link to="/articles" className="navlink">Articles</Link>
+        <Link to="/topics" className="navlink">Topics</Link>
       </nav>
     </>
   );
