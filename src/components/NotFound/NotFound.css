@@ -1,0 +1,15 @@
+.lost {
+    color: #66fcf1;
+    text-align: center;
+    background-color: #1f2833;
+    height: 100dvh;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+.lost-link {
+    color: #45a29e;
+}
+
