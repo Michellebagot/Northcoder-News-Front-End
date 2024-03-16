@@ -1,4 +1,5 @@
 import "./ArticleCard.css";
+import moment from "moment";
 
 const ArticleCard = ({ article }) => {
 
@@ -17,6 +18,9 @@ const ArticleCard = ({ article }) => {
         <p>{article.body}</p>
         <p>Votes: {article.votes}</p>
         <p>Comments: {article.comment_count}</p>
+        <p>Created: {moment(article.created_at).format(
+              "MMMM Do YYYY, h:mm a"
+            )}</p>
       </li>
     </>
   );
