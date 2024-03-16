@@ -122,7 +122,8 @@ body {
 
 
 a {
-  color: black
+  color: black;
+  text-decoration: none;
 }
 
 h1 {

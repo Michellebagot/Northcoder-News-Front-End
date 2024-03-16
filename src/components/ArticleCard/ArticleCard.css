@@ -1,5 +1,4 @@
 .articleCard {
- 
   border: solid 1px black;
   margin: auto;
   margin-bottom: 10px;
@@ -9,7 +8,6 @@
   background-color: #43a29e;
   text-align: center;
   color: #0b0c10;
-
 }
 
 .articleCard:hover {
@@ -18,5 +16,8 @@
 
 img {
   width: 85%;
-  margin: auto
+  margin: auto;
 }
+
+
+
