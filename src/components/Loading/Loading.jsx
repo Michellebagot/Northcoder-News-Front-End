@@ -7,7 +7,9 @@ const Loading = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setMessage(
-        "Page is still loading...  This is most likely due to the server reinitialising after a period of inactivity.  Thank you for your patience"
+        'Page is still loading... ' +
+        'This is most likely due to the server reinitialising after a period of inactivity.' +
+        'Thank you for your patience.'
       );
     }, 2500);
   }, []);

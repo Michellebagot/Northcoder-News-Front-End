@@ -4,24 +4,27 @@ const api = axios.create({
   baseURL: `https://nc-wk7-nc-news.onrender.com`,
 });
 
-export const getArticles = (topic, sort_by, order_by) => {
+export const getArticles = (topic, sort_by = "created_at", order_by = "desc") => {
 
   const myParams = {}
 
   if(topic){myParams.topic = topic}
   if(sort_by){myParams.sort_by = sort_by, myParams.order_by = order_by}
 
+if(myParams.sort_by === "comment_count"){
+    myParams.sort_by = "created_at"
+  }
+
     return api
       .get(`/api/articles`, {
         params: myParams,
       })
-      .then((response) => {
+      .then((response) => {  
         return response.data.articles;
-      })
+})
       .catch((error) => {
         console.log(error);
         return Promise.reject({ status: error.request.status, msg: "Bad request" });
-        // return error.request.status
       });
 };
 

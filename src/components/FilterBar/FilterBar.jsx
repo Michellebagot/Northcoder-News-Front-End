@@ -19,7 +19,7 @@ const FilterBar = ({ setSortBy, sortBy, setOrderBy, orderBy }) => {
           <option value="created_at" defaultValue={"created_at"}>
             Date
           </option>
-          {/* <option value="comment_count">Comment Count</option> //current issues with this code*/}
+          <option value="comment_count">Comment Count</option> //current issues with this code
           <option value="votes">Votes</option>
         </select>
       </section>

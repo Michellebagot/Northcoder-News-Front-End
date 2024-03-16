@@ -15,16 +15,27 @@ const ArticleList = () => {
   const [sortBy, setSortBy] = useState("created_at");
   const [orderBy, setOrderBy] = useState("desc");
   const [errorOccured, setErrorOccured] = useState(false);
+  const [sortByComments, setSortByComments] = useState(false);
 
   const [searchParams] = useSearchParams();
   const topic = searchParams.get("topic");
 
   useEffect(() => {
-    setLoadingState(false);
+    setLoadingState(true);
     getArticles(topic, sortBy, orderBy)
       .then((response) => {
-        setArticleList(response);
-        setLoadingState(true);
+        if (sortBy === "comment_count" && orderBy === 'desc') {
+              setArticleList(response.sort((a, b) => b.comment_count - a.comment_count))
+              setSortByComments(false)
+              setLoadingState(false);
+            }else  if (sortBy === "comment_count" && orderBy === 'asc'){
+              setArticleList(response.sort((a, b) => a.comment_count - b.comment_count))
+          setSortByComments(false)
+          setLoadingState(false);
+  } else {
+          setArticleList(response);
+          setLoadingState(false);
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -37,7 +48,7 @@ const ArticleList = () => {
 
   if (errorOccured) {
     return <NotFound />;
-  } else if (!loadingState) {
+  } else if (loadingState) {
     return <Loading />;
   } else {
     if (selectedArticleId !== "") {

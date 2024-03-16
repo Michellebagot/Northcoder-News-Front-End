@@ -16,6 +16,7 @@ const ArticleCard = ({ article }) => {
         />
         <p>{article.body}</p>
         <p>Votes: {article.votes}</p>
+        <p>Comments: {article.comment_count}</p>
       </li>
     </>
   );
