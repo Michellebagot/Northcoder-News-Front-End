@@ -15,8 +15,7 @@ const ArticleList = () => {
   const [sortBy, setSortBy] = useState("created_at");
   const [orderBy, setOrderBy] = useState("desc");
   const [errorOccured, setErrorOccured] = useState(false);
-  const [sortByComments, setSortByComments] = useState(false);
-
+  
   const [searchParams] = useSearchParams();
   const topic = searchParams.get("topic");
 
@@ -26,11 +25,9 @@ const ArticleList = () => {
       .then((response) => {
         if (sortBy === "comment_count" && orderBy === 'desc') {
               setArticleList(response.sort((a, b) => b.comment_count - a.comment_count))
-              setSortByComments(false)
               setLoadingState(false);
             }else  if (sortBy === "comment_count" && orderBy === 'asc'){
               setArticleList(response.sort((a, b) => a.comment_count - b.comment_count))
-          setSortByComments(false)
           setLoadingState(false);
   } else {
           setArticleList(response);
