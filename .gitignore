@@ -27,3 +27,6 @@ dist-ssr
 *.afpub
 *.afpub~lock~
 *.tldr
+
+# Local Netlify folder
+.netlify
