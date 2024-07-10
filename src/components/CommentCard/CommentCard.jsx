@@ -37,6 +37,7 @@ const CommentCard = ({ comment, currentUser }) => {
         <p>votes: {comment.votes}</p>
         <p>{moment(comment.created_at).format("MMMM Do YYYY, h:mm a")}</p>
         <button
+        className="deleteButton"
           hidden={showDeleteButton}
           onClick={() => {
             handleSubmit();
