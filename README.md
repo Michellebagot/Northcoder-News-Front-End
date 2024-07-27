@@ -6,7 +6,7 @@ Northcoders News is a mock project as fulfilment of the Northcoders Software Dev
 
 A hosted version of this project can be found at : [https://michelle-bagot-nc-news.netlify.app/](https://michelle-bagot-nc-news.netlify.app/)
 
-The backend project can be found at [https://github.com/Michellebagot/nc-wk7-nc-news](https://github.com/Michellebagot/Northcoders-News-Back-End)
+The backend project can be found at [https://github.com/Michellebagot/Northcoders-News-Back-End](https://github.com/Michellebagot/Northcoders-News-Back-End)
 
 ## DEVELOPER INFORMATION
 
